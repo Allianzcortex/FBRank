@@ -1,5 +1,5 @@
 # FBRank
-![development](https://img.shields.io/badge/FM-Development-green.svg)
+![development](https://img.shields.io/badge/FB-Development-green.svg)
 ![continuous-development](https://travis-ci.org/Allianzcortex/RBRank.svg?branch=master)
 ![py-version](https://img.shields.io/pypi/pyversions/Django.svg)
 
@@ -24,6 +24,8 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   -l LEAGUE, --league LEAGUE
+
+```
 
 ```
 
