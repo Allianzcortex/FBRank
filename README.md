@@ -60,3 +60,10 @@ python setup.py install
 pip install FBRank
 
 ```
+
+#### To Do
+
+[] when get rank,you could assign the certain rank to get more specific club info
+[] add color support,top 4/top 6/end 3
+[] club info
+[] player info
