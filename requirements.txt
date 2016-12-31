@@ -1,2 +1,5 @@
-requests==2.11.1
-
+beautifulsoup4==4.5.1
+FBRank==1.0.0
+lxml==3.7.1
+prettytable==0.7.2
+requests==2.12.4
