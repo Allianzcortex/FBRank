@@ -13,6 +13,8 @@ class FBRankException(Exception):
     def __repr__(self):
         return "This is Base Exception"
 
+    __str__ = __repr__
+
 
 class IllegalArgumentException(FBRankException):
     """Use When argument is illegal
@@ -27,3 +29,10 @@ class IllegalNameException(FBRankException):
         message = "Sorry What your input {name} can't be recongnized,you can seed an email to the" \
                   "{mail},or send one PR to the {github}".format(name=name, mail=connect_url, github=github_url)
         return message
+
+    __str__ = __repr__
+
+class ParseException(FBRankException):
+    """use when can't parse webpage content
+    """
+

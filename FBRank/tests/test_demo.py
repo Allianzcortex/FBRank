@@ -16,6 +16,8 @@ from random import randint
 
 import requests
 from bs4 import BeautifulSoup
+
+
 from prettytable import PrettyTable
 
 
@@ -42,8 +44,8 @@ def test():
     url = "http://soccer.hupu.com/table/England.html"
     soup = BeautifulSoup(requests.get(url).content.decode("utf-8"), "lxml")
     for t in soup.find_all("tr", class_=re.compile(r"trbg[red|yellow|blue|grey]")):
-            club = [c.get_text() for c in t.find_all("td") if c.get_text()]
-            table.add_row(club)
+        club = [c.get_text() for c in t.find_all("td") if c.get_text()]
+        table.add_row(club)
 
     print(table)
     # 接下来考虑 prettytable
@@ -53,4 +55,12 @@ def test():
 
 
 if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser(description="load football list")
+    parser.add_argument("-l", "--league", dest="league")
+    parser.add_argument("ask", default="rank", choices=["rank", "info", "news"])
+    args = parser.parse_args()
+    print(vars(args))
+
     test()

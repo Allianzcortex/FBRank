@@ -10,7 +10,7 @@ PY2 = sys.version[0] == '2'
 def check_before(func):
     @wraps(func)
     def wrapped_func(self, *args, **kwargs):
-        if not hasattr(self, name):
+        if not hasattr(self, 'name'):
             raise AttributeError("You must specity league/clue/player name first")
         func(self, *args, **kwargs)
 
@@ -19,15 +19,19 @@ def check_before(func):
 
 # relationship
 
-league_url = {
-    'permierleage': {
-        'base_url': 'https://www.premierleague.com',
-        'rank': 'tables'
+
+league_transformat = {
+    ('英超', 'Premier League', 'Premiere League', '英国', '英格兰'): 'EPL'
+}
+
+league_configure = {
+    'EPL': {
+        'rank_url': 'http://soccer.hupu.com/table/England.html'
     }
 }
 
-league_transformat = {
-    ['manchester united', '曼联', '曼彻斯特联']: 'manutd'
+club_transformat = {
+    ('manchester united', '曼联', '曼彻斯特联'): 'manutd'
 }
 
 club_url = {
