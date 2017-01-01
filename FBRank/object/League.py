@@ -1,8 +1,9 @@
 # -*- coding:utf-8
 
-from FBRank.Parse.League import parse_league_rank
+from FBRank.parse.League import parse_league_rank
 from FBRank.utils.utils import league_configure, league_transformat
-from FBRank.utils.Exceptions import IllegalNameException
+from FBRank.utils.exceptions import IllegalNameException
+
 
 class League(object):
     def __init__(self, pass_name):
@@ -14,10 +15,10 @@ class League(object):
             if pass_name in league_list or pass_name.lower() in league_list:
                 return league_transformat.get(league_list)
 
-        raise IllegalNameException("ff")
+        raise IllegalNameException("")
 
-    def _get_webrank(self):
-        return parse_league_rank(self._get_url())
+    def _get_webrank(self, index=0):
+        return parse_league_rank(self._get_url(), index)
 
     def _get_url(self):
         return league_configure[self.name]['rank_url']

@@ -3,7 +3,7 @@ from codecs import open
 from os import path
 
 setup(
-        name='Football Manager',
+        name='FBRank',
         version='1.0.0',
 
         description="one commandline tools help visualize league rank and other imformation",

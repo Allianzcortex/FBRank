@@ -9,7 +9,7 @@ import sys
 from os import path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from FBRank.Objects.League import League
+from FBRank.object.League import League
 
 
 # from FBRank.utils.utils import PY2

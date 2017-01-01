@@ -6,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 from prettytable import PrettyTable
 
+from FBRank.utils.exceptions import IllegalArgumentException
+
 
 def parse_league_rank(url, index=0):
     """
@@ -39,5 +41,5 @@ def parse_league_rank(url, index=0):
         table.add_row(club)
     if index != 0:
         raise IllegalArgumentException(
-            "index out of range,the max is {} /排名超出范围，最大是 {}".format(cur, cur))
+                "index out of range,the max is {} /排名超出范围，最大是 {}".format(cur, cur))
     return table
