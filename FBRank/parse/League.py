@@ -11,7 +11,6 @@ from FBRank.utils.exceptions import IllegalArgumentException
 
 def parse_league_rank(url, index=0):
     """
-
     :param url: weburl which contains ceatain league rank information
     :return: PrettyTable Object contains league rank
 
@@ -43,3 +42,9 @@ def parse_league_rank(url, index=0):
         raise IllegalArgumentException(
                 "index out of range,the max is {} /排名超出范围，最大是 {}".format(cur, cur))
     return table
+
+def parse_league_news(url):
+    """
+    :param url: weburl which contains ceatain league news information
+    :return: 
+    """

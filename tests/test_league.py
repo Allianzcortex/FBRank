@@ -9,7 +9,7 @@ from FBRank.object import League
 from FBRank.utils.exceptions import IllegalNameException
 
 
-# def cc():
+# def test_error():
 #     raise ValueError("dd")
 
 class TestLeague(unittest.TestCase):
@@ -17,7 +17,7 @@ class TestLeague(unittest.TestCase):
         self.league = League("英超")
 
     def test_construct(self):
-        # self.assertRaises(ValueError,cc)
+        # self.assertRaises(ValueError,test_error)
         self.assertRaises(IllegalNameException, League, "cc")
 
     def test_attribute(self):
