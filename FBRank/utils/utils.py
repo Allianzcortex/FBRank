@@ -17,6 +17,11 @@ def check_before(func):
     return wrapped_func
 
 
+def print_league_news(news_dict):
+    # 点击 q 退出，输入对应的链接查看网页内容
+    pass
+
+
 # relationship
 
 
@@ -26,7 +31,8 @@ league_transformat = {
 
 league_configure = {
     'EPL': {
-        'rank_url': 'http://soccer.hupu.com/table/England.html'
+        'rank_url': 'http://soccer.hupu.com/table/England.html',
+        'news_url': 'http://soccer.hupu.com/england/'
     }
 }
 
@@ -44,3 +50,5 @@ football_url = {
 
 connect_url = 'iamwanghz@gmail.com'
 github_url = 'https://github.com/FBRank'
+
+league_news_pattern = r'<h2><a class="f074" href="(.*?)".*?>(.*?)</a>'

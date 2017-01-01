@@ -21,6 +21,7 @@ class TestLeague(unittest.TestCase):
         self.assertRaises(IllegalNameException, League, "cc")
 
     def test_attribute(self):
+        print (self.league.news)
         self.assertTrue(hasattr(self.league, 'rank'))
 
 

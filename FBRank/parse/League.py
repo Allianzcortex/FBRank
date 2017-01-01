@@ -1,12 +1,21 @@
 # -*- coding:utf-8 -*-
+"""
+parse web content about league,now it includes:premier league,Liga BBVA
+"""
 
 import re
+from collections import defaultdict
 
 import requests
 from bs4 import BeautifulSoup
 from prettytable import PrettyTable
 
 from FBRank.utils.exceptions import IllegalArgumentException
+from FBRank.utils.utils import league_news_pattern
+
+
+
+league_news_pattern_target = re.compile(league_news_pattern)
 
 
 def parse_league_rank(url, index=0):
@@ -16,7 +25,7 @@ def parse_league_rank(url, index=0):
 
     tips:
     - origin premire leagure website will be instability
-    - sprts tencent return JSON Data,But cannot be directy play(with out front-end)
+    - sports tencent return JSON Data,But cannot be directy play(with out front-end)
     url = "http://matchweb.sports.qq.com/team/rank"
     payloads = 
          'callback': 'recommendlist',
@@ -25,7 +34,6 @@ def parse_league_rank(url, index=0):
          '_': str(randint(1, 100000))
      }
     response = requests.get(url, params=payloads).content.decode('utf-8')
-    print (response)
     """
 
     cur = 1
@@ -43,8 +51,23 @@ def parse_league_rank(url, index=0):
                 "index out of range,the max is {} /排名超出范围，最大是 {}".format(cur, cur))
     return table
 
+
 def parse_league_news(url):
     """
     :param url: weburl which contains ceatain league news information
-    :return: 
+    :return: dict {index:[title,url]}
+    """
+    news_dict = defaultdict(list)
+    web_news = requests.get(url).content.decode('utf-8')
+    key = 1
+    for url, news in league_news_pattern_target.findall(web_news):
+        news_dict[key].extend([url, news])
+        key += 1
+    return news_dict
+
+def get_news_from_index(url):
+    """
+    get wen news from certain url
+    :param url: new url
+    :return: new content,plain text
     """
