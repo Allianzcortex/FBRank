@@ -10,4 +10,6 @@ https://docs.python.org/3/library/argparse.html
 
 # 2016.01.02
 
-已经完成了对 league 的支持以及部分 news 的查看
+# 已经完成了对 league 的支持以及部分 news 的查看
+
+# 所输出的新闻列表是无需的，考虑用 OrderDict+setdefault 来替代 defaultdict

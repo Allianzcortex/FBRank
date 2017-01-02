@@ -64,12 +64,17 @@ def parse_league_news(url):
         # still to be optimized
         title = re.search(r'title="(.*?)"', str(news)).group(1)
         url = re.search(r'href="(.*?)"', str(news)).group(1)
-        news_dict[key].extend([url, title])
+        # use str,because what people input will be str
+        news_dict[str(key)].extend([url, title])
         key += 1
     return news_dict
 
 
 def show_news(news_dict):
+    """
+    :param news_dict: news_dict returned from parse_league_news
+    :return: None,just print
+    """
     table = PrettyTable(["ID", "链接"])
     for id, (_, title) in news_dict.items():
         table.add_row([id, title])
