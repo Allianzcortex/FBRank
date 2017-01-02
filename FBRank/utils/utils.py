@@ -31,19 +31,19 @@ league_transformat = {
 league_configure = {
     'EPL': {
         'rank_url': 'http://soccer.hupu.com/table/England.html',
-        'news_url': 'http://soccer.hupu.com/england/'
+        'news_url': 'http://sports.sina.com.cn/g/premierleague/'
     },
     'Bunde': {
         'rank_url': 'http://soccer.hupu.com/table/Germany.html',
-        'news_url': 'http://soccer.hupu.com/germany/'
+        'news_url': 'http://sports.sina.com.cn/g/bundesliga/'
     },
     'La Liga': {
         'rank_url': 'http://soccer.hupu.com/table/Spain.html',
-        'news_url': 'http://soccer.hupu.com/spain/'
+        'news_url': 'http://sports.sina.com.cn/g/laliga/'
     },
     'Serie A': {
         'rank_url': 'http://soccer.hupu.com/table/Italy.html',
-        'news_url': 'http://soccer.hupu.com/italy/'
+        'news_url': 'http://sports.sina.com.cn/g/seriea/'
     }
 }
 

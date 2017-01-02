@@ -41,3 +41,7 @@ class IllegalNameException(FBRankException):
 class ParseException(FBRankException):
     """use when can't parse webpage content
     """
+
+class NotSupprotedYetException(FBRankException):
+    """still not supprt
+    """

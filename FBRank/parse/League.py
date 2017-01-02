@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from prettytable import PrettyTable
 
-from FBRank.utils.exceptions import IllegalArgumentException
+from FBRank.utils.exceptions import IllegalArgumentException, NotSupprotedYetException
 from FBRank.utils.utils import league_news_pattern
 
 league_news_pattern_target = re.compile(league_news_pattern)
@@ -55,10 +55,15 @@ def parse_league_news(url):
     :param url: weburl which contains ceatain league news information
     :return: dict {index:[title,url]}
     """
+    if url.endswith('bundesliga/'):
+        raise NotSupprotedYetException("bundesliga news still not to be exported,wait for the next version:-D")
     news_dict = defaultdict(list)
-    web_news = requests.get(url).content.decode('utf-8')
+    web_news = BeautifulSoup(requests.get(url).content.decode('utf-8'), 'lxml')
     key = 1
-    for url, title in league_news_pattern_target.findall(web_news):
+    for news in web_news.find('div', class_='banner_list slide').find_all('h3')[:-1]:
+        # still to be optimized
+        title = re.search(r'title="(.*?)"', str(news)).group(1)
+        url = re.search(r'href="(.*?)"', str(news)).group(1)
         news_dict[key].extend([url, title])
         key += 1
     return news_dict
@@ -69,11 +74,14 @@ def show_news(news_dict):
     for id, (_, title) in news_dict.items():
         table.add_row([id, title])
     print(table)
-    prompt = input('------请输入选择的 id 查看新闻具体内容，或者点击 q 退出------\n')
-    if prompt == 'q':
-        return '点击结束'
-    else:
-        pass
+    while True:
+        prompt = input('------请输入选择的 id 查看新闻具体内容，或者点击 q 退出------\n')
+        if prompt == 'q':
+            return '点击结束'
+        elif prompt not in news_dict.keys():
+            print('请输入上述列表中的一个 id')
+        else:
+            print(get_news_from_index(news_dict[prompt][0]))
 
 
 def get_news_from_index(url):
