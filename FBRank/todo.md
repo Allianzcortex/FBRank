@@ -7,3 +7,7 @@ http://stackoverflow.com/questions/36423259/how-to-use-pretty-table-in-python-to
 3. 用 travis-CI 来进行集成
 4. argparser
 https://docs.python.org/3/library/argparse.html
+
+# 2016.01.02
+
+已经完成了对 league 的支持以及部分 news 的查看

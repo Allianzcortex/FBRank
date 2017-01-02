@@ -13,8 +13,6 @@ from prettytable import PrettyTable
 from FBRank.utils.exceptions import IllegalArgumentException
 from FBRank.utils.utils import league_news_pattern
 
-
-
 league_news_pattern_target = re.compile(league_news_pattern)
 
 
@@ -60,10 +58,23 @@ def parse_league_news(url):
     news_dict = defaultdict(list)
     web_news = requests.get(url).content.decode('utf-8')
     key = 1
-    for url, news in league_news_pattern_target.findall(web_news):
-        news_dict[key].extend([url, news])
+    for url, title in league_news_pattern_target.findall(web_news):
+        news_dict[key].extend([url, title])
         key += 1
     return news_dict
+
+
+def show_news(news_dict):
+    table = PrettyTable(["ID", "链接"])
+    for id, (_, title) in news_dict.items():
+        table.add_row([id, title])
+    print(table)
+    prompt = input('------请输入选择的 id 查看新闻具体内容，或者点击 q 退出------\n')
+    if prompt == 'q':
+        return '点击结束'
+    else:
+        pass
+
 
 def get_news_from_index(url):
     """

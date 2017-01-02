@@ -17,22 +17,33 @@ def check_before(func):
     return wrapped_func
 
 
-def print_league_news(news_dict):
-    # 点击 q 退出，输入对应的链接查看网页内容
-    pass
-
 
 # relationship
 
 
 league_transformat = {
-    ('英超', 'Premier League', 'Premiere League', '英国', '英格兰'): 'EPL'
+    ('英超', 'Premier League', 'Premiere League', '英国', '英格兰'): 'EPL',
+    ('德甲', 'Bundesliga', 'Bunde', '德国'): 'Bunde',
+    ('西甲', 'Liga BBva', '西班牙'): 'La Liga',
+    ('意甲', 'Serie A', '意大利'): 'Serie A'
 }
 
 league_configure = {
     'EPL': {
         'rank_url': 'http://soccer.hupu.com/table/England.html',
         'news_url': 'http://soccer.hupu.com/england/'
+    },
+    'Bunde': {
+        'rank_url': 'http://soccer.hupu.com/table/Germany.html',
+        'news_url': 'http://soccer.hupu.com/germany/'
+    },
+    'La Liga': {
+        'rank_url': 'http://soccer.hupu.com/table/Spain.html',
+        'news_url': 'http://soccer.hupu.com/spain/'
+    },
+    'Serie A': {
+        'rank_url': 'http://soccer.hupu.com/table/Italy.html',
+        'news_url': 'http://soccer.hupu.com/italy/'
     }
 }
 

@@ -1,6 +1,6 @@
 # -*- coding:utf-8
 
-from FBRank.parse.League import parse_league_rank, parse_league_news
+from FBRank.parse.League import parse_league_rank, parse_league_news, show_news
 from FBRank.utils.utils import league_configure, league_transformat
 from FBRank.utils.exceptions import IllegalNameException
 
@@ -19,7 +19,8 @@ class League(object):
         raise IllegalNameException("")
 
     def _get_news(self):
-        return parse_league_news(self._get_news_url())
+        news_dict = parse_league_news(self._get_news_url())
+        show_news(news_dict)
 
     def _get_news_url(self):
         return league_configure[self.name]['news_url']
