@@ -9,7 +9,10 @@ class League(object):
     def __init__(self, pass_name):
         self.name = self._get_name(pass_name)  # to be converted
         self.rank = self._get_webrank()
-        self.news = self._get_news()
+
+    @property
+    def news(self):
+        return self._get_news()
 
     def _get_name(self, pass_name):
         for league_list in league_transformat.keys():
