@@ -93,7 +93,7 @@ def get_news_from_index(url):
     """
     get wen news from certain url
     :param url: new url
-    :return: new content,plain text
+    :return: news content,plain text
     """
     headers = {
         'Accept': 'image/webp,image/*,*/*;q=0.8',
