@@ -2,20 +2,25 @@
 import sys
 from functools import wraps
 
+from .exceptions import NotSupprotedYetException
+
 PY2 = sys.version[0] == '2'
 
 
 # decorator for check-name
-# Is this really useful...
-def check_before(func):
-    @wraps(func)
-    def wrapped_func(self, *args, **kwargs):
-        if not hasattr(self, 'name'):
-            raise AttributeError("You must specity league/clue/player name first")
-        func(self, *args, **kwargs)
+# For Club Check
+def check_before(attr='name'):
+    def wrapped_func(func):
+        @wraps(func)
+        def wrapped(self, *args, **kwargs):
+            # print(func.__class__.__name__)
+            if (getattr(self, attr).lower() not in club_transformat.keys()):
+                raise NotSupprotedYetException
+            return func(self, *args, **kwargs)
+
+        return wrapped
 
     return wrapped_func
-
 
 
 # relationship
