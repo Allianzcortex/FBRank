@@ -33,3 +33,6 @@ class League(object):
 
     def _get_webrank_url(self):
         return league_configure[self.name]['rank_url']
+
+    def __repr__(self):
+        return '<League {}'.format(self.name)
