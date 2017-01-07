@@ -4,7 +4,7 @@ from os import path
 
 setup(
         name='FBRank',
-        version='1.3.0',
+        version='1.6.0',
 
         description="one commandline tools help visualize league rank and other imformation",
         url='https://github.com/Allianzcortex/FBRank',

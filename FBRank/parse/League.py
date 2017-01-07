@@ -11,7 +11,10 @@ from bs4 import BeautifulSoup
 from prettytable import PrettyTable
 
 from FBRank.utils.exceptions import IllegalArgumentException, NotSupprotedYetException
-from FBRank.utils.utils import league_news_pattern
+from FBRank.utils.utils import league_news_pattern, PY2
+
+if PY2:
+    input = raw_input
 
 league_news_pattern_target = re.compile(league_news_pattern)
 
@@ -103,5 +106,8 @@ def get_news_from_index(url):
         'Connection': 'keep-alive',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
     }
-    soup = BeautifulSoup(requests.get(url).content.decode("gb2312"), "lxml")
-    return (soup.find("dl").find_all("dd")[4].get_text())
+    try:
+        soup = BeautifulSoup(requests.get(url).content.decode("gb2312"), "lxml")
+        return (soup.find("dl").find_all("dd")[4].get_text())
+    except AttributeError as ex:
+        return "sorry the news content counld not be find"
