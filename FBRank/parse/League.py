@@ -95,3 +95,13 @@ def get_news_from_index(url):
     :param url: new url
     :return: new content,plain text
     """
+    headers = {
+        'Accept': 'image/webp,image/*,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate, sdch',
+        'Accept-Language': 'zh',
+        'Cache-Control': 'max-age=0',
+        'Connection': 'keep-alive',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+    }
+    soup = BeautifulSoup(requests.get(url).content.decode("gb2312"), "lxml")
+    return (soup.find("dl").find_all("dd")[4].get_text())

@@ -11,7 +11,7 @@ One CLub should hava attributes as folowing:
 The Logic and Content will be very simple,so there is no need to write parse/Club.py
 """
 
-from FBRank.utils.utils import league_transformat, check_before, check_before
+from FBRank.utils.utils import league_transformat, check_before
 from FBRank.utils.exceptions import IllegalNameException
 
 import requests

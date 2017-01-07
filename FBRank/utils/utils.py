@@ -2,7 +2,18 @@
 import sys
 from functools import wraps
 
-from .exceptions import NotSupprotedYetException
+# from .exceptions import NotSupprotedYetException
+# 如果在这里的话就会造成循环引入
+"""
+File "/home/hzcortex/FBRank/FBRank/parse/League.py", line 13, in <module>
+    from FBRank.utils.exceptions import IllegalArgumentException, NotSupprotedYetException
+  File "/home/hzcortex/FBRank/FBRank/utils/exceptions.py", line 2, in <module>
+    from .utils import github_url, connect_url
+  File "/home/hzcortex/FBRank/FBRank/utils/utils.py", line 5, in <module>
+    from .exceptions import NotSupprotedYetException
+ImportError: cannot import name 'NotSupprotedYetException'
+
+"""
 
 PY2 = sys.version[0] == '2'
 
@@ -10,6 +21,7 @@ PY2 = sys.version[0] == '2'
 # decorator for check-name
 # For Club Check
 def check_before(attr='name'):
+    from .exceptions import NotSupprotedYetException
     def wrapped_func(func):
         @wraps(func)
         def wrapped(self, *args, **kwargs):
