@@ -1,4 +1,7 @@
 # -*- coding:utf-8
+"""
+Use For All League
+"""
 
 from FBRank.parse.League import parse_league_rank, parse_league_news, show_news
 from FBRank.utils.utils import league_configure, league_transformat
@@ -35,4 +38,4 @@ class League(object):
         return league_configure[self.name]['rank_url']
 
     def __repr__(self):
-        return '<League {}'.format(self.name)
+        return '<League {}>'.format(self.name)
