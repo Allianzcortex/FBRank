@@ -34,6 +34,10 @@ class Club(object):
     @property
     @check_before()
     def court(self):
+        """
+        TODO implement
+        :return:
+        """
 
     def __repr__(self):
         return '<Club {}>'.format(self.name)
