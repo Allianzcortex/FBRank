@@ -9,8 +9,8 @@ from FBRank.utils.exceptions import IllegalNameException
 
 
 class League(object):
-    def __init__(self, pass_name):
-        self.name = self._get_name(pass_name)  # to be converted
+    def __init__(self, intro_name):
+        self.name = self._get_name(intro_name)  # to be converted
         self.rank = self._get_webrank()
 
     @property
