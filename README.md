@@ -47,14 +47,15 @@ $ FB -l 英超 rank # 可以更换英超为 英国/英格兰/premier league 等�
 
 #### Get it
 
-1. The First Way is to build it from source
+- The First Way is to build it from source,you can get the newest feature
+
 ```
 
 python setup.py install
 
 ```
 
-2. 从 pypi 上下载
+- or you can get the stable version from **pypi**
 
 ```
 pip install FBRank
@@ -63,8 +64,13 @@ pip install FBRank
 
 #### To Do
 
-- [] when get rank,you could assign the certain rank to get more specific club info
-- [] add color support,top 4/top 6/end 3
-- [] club info
-- [] player info
-- [] add tox.ini(done) and with coverage report
+- [x] Show rank and news
+- [ ] Assign the certain rank to get more specific club info
+- [ ] Add color support,top 4/top 6/end 3
+- [ ] Add club and Player info
+- [x] Add tox.ini(done) 
+- [ ] Add coverage report
+
+---
+
+![show](show.png)
