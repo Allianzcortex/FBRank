@@ -1,6 +1,6 @@
 # FBRank
 ![development](https://img.shields.io/badge/FB-Development-green.svg)
-![continuous-development](https://api.travis-ci.org/Allianzcortex/RBRank.svg?branch=master)
+![continuous-development](https://travis-ci.org/Allianzcortex/FBRank.svg?branch=master)
 ![py-version](https://img.shields.io/pypi/pyversions/Django.svg)
 
 #### What It Is ?
