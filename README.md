@@ -2,6 +2,7 @@
 ![development](https://img.shields.io/badge/FB-Development-green.svg)
 ![continuous-development](https://travis-ci.org/Allianzcortex/FBRank.svg?branch=master)
 ![py-version](https://img.shields.io/pypi/pyversions/Django.svg)
+[![PyPI version](https://badge.fury.io/py/FBRank.svg)](https://badge.fury.io/py/FBRank)
 
 #### What It Is ?
 
