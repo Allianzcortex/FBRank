@@ -74,4 +74,4 @@ pip install FBRank
 
 ---
 
-![show](show.png)
+![show](Screenshots.png)
