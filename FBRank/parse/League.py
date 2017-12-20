@@ -110,4 +110,4 @@ def get_news_from_index(url):
         soup = BeautifulSoup(requests.get(url).content.decode("gb2312"), "lxml")
         return (soup.find("dl").find_all("dd")[4].get_text())
     except AttributeError as ex:
-        return "sorry the news content counld not be find"
+        return "sorry the news content counld not be founded"
