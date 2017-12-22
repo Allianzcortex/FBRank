@@ -68,7 +68,7 @@ pip install FBRank
 - [x] Show rank and news
 - [ ] Assign the certain rank to get more specific club info
 - [ ] Add color support,top 4/top 6/end 3
-- [ ] Add club and Player info
+- [ ] Add club and player info
 - [x] Add tox.ini(done) 
 - [ ] Add coverage report
 
