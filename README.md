@@ -4,13 +4,11 @@
 ![py-version](https://img.shields.io/pypi/pyversions/Django.svg)
 [![PyPI version](https://badge.fury.io/py/FBRank.svg)](https://badge.fury.io/py/FBRank)
 
-#### What It Is ?
+#### What Is It ?
 
-FBRank 是一个在线查看足球信息的工具。
+FBRank is an terminal tool which can help you review football information
 
 #### Usage
-
-现在只支持命令行工具
 
 ```
 $ FB -h
@@ -30,7 +28,7 @@ optional arguments:
 
 ```
 
-$ FB -l 英超 rank # 可以更换英超为 英国/英格兰/premier league 等词，大小写不敏感
+$ FB -l 英超 rank # it only support Chinese keywords now 
 
 +------+----------+------+----+----+----+------+------+--------+----------+----------+----------+----------+------+
 | 排名 |  球队名  | 场次 | 胜 | 平 | 负 | 进球 | 失球 | 净胜球 | 场均进球 | 场均失球 | 场均净胜 | 场均积分 | 积分 |
@@ -48,13 +46,7 @@ $ FB -l 英超 rank # 可以更换英超为 英国/英格兰/premier league 等�
 
 #### Get it
 
-- The First Way is to build it from source,you can get the newest feature
-
-```
-
-python setup.py install
-
-```
+- The First Way is to build it from source,you can get the newest feature  `python setup.py install`
 
 - or you can get the stable version from **pypi**
 
