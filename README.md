@@ -48,12 +48,8 @@ $ FB -l 英超 rank # it only support Chinese keywords now
 
 - The First Way is to build it from source,you can get the newest feature  `python setup.py install`
 
-- or you can get the stable version from **pypi**
+- or you can get the stable version from `pip install FBRank`
 
-```
-pip install FBRank
-
-```
 
 #### To Do
 
