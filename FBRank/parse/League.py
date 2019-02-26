@@ -11,10 +11,7 @@ from bs4 import BeautifulSoup
 from prettytable import PrettyTable
 
 from FBRank.utils.exceptions import IllegalArgumentException, NotSupprotedYetException
-from FBRank.utils.utils import league_news_pattern, PY2
-
-if PY2:
-    input = raw_input
+from FBRank.utils.utils import league_news_pattern,EPL_League_transformat
 
 league_news_pattern_target = re.compile(league_news_pattern)
 
@@ -38,11 +35,12 @@ def parse_league_rank(url, index=0):
     """
 
     cur = 1
-    table = PrettyTable(["排名", "球队名", "场次", "胜", "平", "负", "进球", "失球",
-                         "净胜球", "场均进球", "场均失球", "场均净胜", "场均积分", "积分"])
+    table = PrettyTable(["Position", "Club", "Player", "Won", "Drawn", "Lost", "GF", "GA",
+                         "GD", "AGF", "AGA", "AGD", "APoints", "Points"])
     soup = BeautifulSoup(requests.get(url).content.decode("utf-8"), "lxml")
     for t in soup.find_all("tr", class_=re.compile(r"trbg[red|yellow|blue|grey]")):
         club = [c.get_text() for c in t.find_all("td") if c.get_text()]
+        club[1]=EPL_League_transformat[club[1]]
         if (cur == index):
             return club
         cur += 1
@@ -106,8 +104,5 @@ def get_news_from_index(url):
         'Connection': 'keep-alive',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
     }
-    try:
-        soup = BeautifulSoup(requests.get(url).content.decode("gb2312"), "lxml")
-        return (soup.find("dl").find_all("dd")[4].get_text())
-    except AttributeError as ex:
-        return "sorry the news content could not be founded"
+    soup = BeautifulSoup(requests.get(url).content.decode("gb2312"), "lxml")
+    return (soup.find("dl").find_all("dd")[4].get_text())
