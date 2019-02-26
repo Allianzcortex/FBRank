@@ -9,12 +9,13 @@ from collections import defaultdict
 import requests
 from bs4 import BeautifulSoup
 from prettytable import PrettyTable
+from translate import Translator
 
 from FBRank.utils.exceptions import IllegalArgumentException, NotSupprotedYetException
 from FBRank.utils.utils import league_news_pattern,EPL_League_transformat
 
 league_news_pattern_target = re.compile(league_news_pattern)
-
+translator= Translator(from_lang="zh_CN",to_lang="en")
 
 def parse_league_rank(url, index=0):
     """
@@ -47,7 +48,7 @@ def parse_league_rank(url, index=0):
         table.add_row(club)
     if index != 0:
         raise IllegalArgumentException(
-                "index out of range,the max is {} /排名超出范围，最大是 {}".format(cur, cur))
+                "index out of range,the max is {} / {}".format(cur, cur))
     return table
 
 
@@ -76,16 +77,16 @@ def show_news(news_dict):
     :param news_dict: news_dict returned from parse_league_news
     :return: None,just print
     """
-    table = PrettyTable(["ID", "链接"])
+    table = PrettyTable(["ID", "link"])
     for id, (_, title) in news_dict.items():
-        table.add_row([id, title])
+        table.add_row([id, translator.translate(title)])
     print(table)
     while True:
-        prompt = input('------请输入选择的 id 查看新闻具体内容，或者点击 q 退出------\n')
+        prompt = input('------input `ID` to get specific content ，or input `q` to quit------\n')
         if prompt == 'q':
-            return '点击结束'
+            return 'done.'
         elif prompt not in news_dict.keys():
-            print('请输入上述列表中的一个 id')
+            print('Please input any ID inside the table')
         else:
             print(get_news_from_index(news_dict[prompt][0]))
 
@@ -105,4 +106,4 @@ def get_news_from_index(url):
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
     }
     soup = BeautifulSoup(requests.get(url).content.decode("gb2312"), "lxml")
-    return (soup.find("dl").find_all("dd")[4].get_text())
+    return translator.translate(soup.find("dl").find_all("dd")[4].get_text())
