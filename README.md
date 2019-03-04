@@ -6,7 +6,7 @@
 
 #### What Is It ?
 
-FBRank is an terminal tool which can help you review football information
+FBRank is a terminal tool which can help you review football information
 
 #### Usage
 
