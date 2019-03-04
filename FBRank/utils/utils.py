@@ -3,7 +3,7 @@ import sys
 from functools import wraps
 
 # from .exceptions import NotSupprotedYetException
-# 如果在这里的话就会造成循环引入
+# If used , it will cause circulation import
 """
 File "/home/hzcortex/FBRank/FBRank/parse/League.py", line 13, in <module>
     from FBRank.utils.exceptions import IllegalArgumentException, NotSupprotedYetException
@@ -39,7 +39,7 @@ def check_before(attr='name'):
 
 EPL_League_transformat = {
     "利物浦":"Liverpool",
-    "曼城":"Man Citt",
+    "曼城":"Man City",
     "热刺":"Spurs",
     "阿森纳":"Arsenal",
     "曼联":"Man Utd",

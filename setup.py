@@ -4,9 +4,9 @@ from os import path
 
 setup(
         name='FBRank',
-        version='1.6.0',
+        version='1.8.0',
 
-        description="one commandline tools help visualize league rank and other imformation",
+        description="A commandline tool helps you visualize league rank and other imformation",
         url='https://github.com/Allianzcortex/FBRank',
         author='Allianzcortex',
         author_email='iamwanghz@gmail.com',
