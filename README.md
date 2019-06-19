@@ -50,6 +50,8 @@ $ FB -l EPL rank #
 
 - or you can get the stable version from `pip install FBRank`
 
+- In case you cannot run the application , you still need to `pip install translation`
+
 
 #### To Do
 
