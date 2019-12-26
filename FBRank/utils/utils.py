@@ -43,6 +43,7 @@ EPL_League_transformat = {
     "热刺":"Spurs",
     "阿森纳":"Arsenal",
     "曼联":"Man Utd",
+    "谢菲联":"Sheffield",
     "切尔西":"Chelsea",
     "沃特福德":"Watford",
     "狼队":"Wolves",

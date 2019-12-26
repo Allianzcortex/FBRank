@@ -41,7 +41,7 @@ def parse_league_rank(url, index=0):
     soup = BeautifulSoup(requests.get(url).content.decode("utf-8"), "lxml")
     for t in soup.find_all("tr", class_=re.compile(r"trbg[red|yellow|blue|grey]")):
         club = [c.get_text() for c in t.find_all("td") if c.get_text()]
-        club[1]=EPL_League_transformat[club[1]]
+        club[1]=EPL_League_transformat.get(club[1],'UnKnown')
         if (cur == index):
             return club
         cur += 1
