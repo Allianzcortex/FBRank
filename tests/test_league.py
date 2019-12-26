@@ -14,7 +14,7 @@ from FBRank.utils.exceptions import IllegalNameException
 
 class TestLeague(unittest.TestCase):
     def setUp(self):
-        self.league = League("EPL")
+        self.league = League("英超")
 
     def test_construct(self):
         # self.assertRaises(ValueError,test_error)

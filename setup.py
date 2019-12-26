@@ -4,7 +4,7 @@ from os import path
 
 setup(
         name='FBRank',
-        version='1.8.0',
+        version='1.8.7',
 
         description="A commandline tool helps you visualize league rank and other imformation",
         url='https://github.com/Allianzcortex/FBRank',
@@ -19,9 +19,9 @@ setup(
             'Programming Language :: Python :: 3.5',
         ],
 
-        keywords='Football Manager SetupTools',
+        keywords='Soccerball Manager SetupTools',
         packages=find_packages(),
-        install_requires=['requests', 'beautifulsoup4', 'prettytable'],
+        install_requires=['requests', 'beautifulsoup4', 'prettytable', 'translate'],
 
         entry_points={
             'console_scripts': [
