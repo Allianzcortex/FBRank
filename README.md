@@ -46,11 +46,7 @@ $ FB -l EPL rank #
 
 #### Get it
 
-- The First Way is to build it from source,you can get the newest feature  `python setup.py install`
-
-- or you can get the stable version from `pip install FBRank`
-
-- In case you cannot run the application , you still need to `pip install translate`
+- type the command to install it from pypi  `pip install FBRank`
 
 
 #### To Do
