@@ -6,7 +6,7 @@
 
 #### What Is It ?
 
-FBRank is a terminal tool which can help you review football information
+FBRank is a terminal tool that can help you view soccerball information
 
 #### Usage
 
@@ -15,7 +15,7 @@ $ FB -h
 
 usage: FB [-h] [-l LEAGUE] {rank,info,news}
 
-load football list
+load soccerball list
 
 positional arguments:
   {rank,info,news}
@@ -46,7 +46,7 @@ $ FB -l EPL rank #
 
 #### Get it
 
-- type the command to install it from pypi  `pip install FBRank`
+-  `pip install FBRank`
 
 
 #### To Do
